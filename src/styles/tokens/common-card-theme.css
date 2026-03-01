@@ -1,0 +1,73 @@
+@theme {
+  /* 카드 공통 색상 토큰 (다크 기본값) */
+  --color-card-bg: var(--ui-bg);
+  --color-card-border: var(--ui-200);
+  --color-card-title: #ffffff;
+  --color-card-text: var(--color-gray-300);
+  --color-card-muted: var(--color-gray-500);
+  --color-card-divider: var(--color-gray-600);
+  --color-divider: var(--color-gray-600);
+
+  --color-card-section-bg: transparent;
+  --color-profile-card-bg: #212328;
+  --color-surface-tab: #2f323a;
+  --color-tab-bg-active: #191b1e;
+  --color-tab-text-active: #ffffff;
+  --color-tab-text-inactive: #9ea6ba;
+  --color-my-tab-active: #f8f9fb;
+  --color-my-tab-inactive: #191b1e;
+  --color-my-tab-border: #41444d;
+  --color-my-tab-text: #7f8596;
+
+  --color-filter-text: #d4dae7;
+  --color-filter-bg: #212328;
+
+  /* 메인 페이지 전용 카드 */
+  --color-main-profile-border-start: rgba(78, 73, 255, 0.6);
+  --color-main-profile-border-mid: rgba(114, 110, 255, 0.6);
+  --color-main-profile-border-end: rgba(219, 80, 179, 0.6);
+  --color-main-profile-match-bg: #2f323a;
+  --color-main-profile-match-text: #ffffff;
+  --color-main-project-score-bg: #2f323a;
+  --color-main-project-score-text: #ffffff;
+  --color-main-project-border-start: rgba(78, 73, 255, 0.6);
+  --color-main-project-border-mid: rgba(114, 110, 255, 0.6);
+  --color-main-project-border-end: rgba(219, 80, 179, 0.6);
+}
+
+[data-theme="light"] {
+  /* 라이트 모드용 값 덮어쓰기 */
+  --color-card-bg: #ffffff;
+  --color-card-border: #d4dae7;
+  --color-card-title: #191b1e;
+  --color-card-text: #606673;
+  --color-card-muted: #9ea6ba;
+  --color-card-divider: #d4dae7;
+  --color-divider: #d4dae7;
+
+  --color-card-section-bg: #f8f9fb;
+  --color-profile-card-bg: #f8f9fb;
+  --color-surface-tab: #f3f5fc;
+  --color-tab-bg-active: #ffffff;
+  --color-tab-text-active: #212328;
+  --color-tab-text-inactive: #606673;
+  --color-my-tab-active: #212328;
+  --color-my-tab-inactive: #fff;
+  --color-my-tab-border: #d4dae7;
+  --color-my-tab-text: #939aae;
+
+  --color-filter-text: #41444d;
+  --color-filter-bg: #f8f9fb;
+
+  /* 메인 페이지 전용 카드 */
+  --color-main-profile-border-start: rgba(78, 73, 255, 0.35);
+  --color-main-profile-border-mid: rgba(114, 110, 255, 0.35);
+  --color-main-profile-border-end: rgba(219, 80, 179, 0.35);
+  --color-main-profile-match-bg: #f3f5fc;
+  --color-main-profile-match-text: #191b1e;
+  --color-main-project-score-bg: #f3f5fc;
+  --color-main-project-score-text: #191b1e;
+  --color-main-project-border-start: rgba(78, 73, 255, 0.35);
+  --color-main-project-border-mid: rgba(114, 110, 255, 0.35);
+  --color-main-project-border-end: rgba(219, 80, 179, 0.35);
+}

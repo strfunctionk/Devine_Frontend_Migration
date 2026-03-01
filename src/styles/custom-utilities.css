@@ -1,0 +1,235 @@
+@layer utilities {
+  /* flex row */
+  .flex-row {
+    @apply flex flex-row;
+  }
+
+  .flex-items-center {
+    @apply flex flex-row items-center;
+  }
+
+  .flex-row-center {
+    @apply flex flex-row items-center justify-center;
+  }
+
+  .flex-row-between {
+    @apply flex flex-row items-center justify-between;
+  }
+
+  .flex-row-end {
+    @apply flex flex-row items-center justify-end;
+  }
+
+  .flex-row-items-start {
+    @apply flex flex-row items-start;
+  }
+
+  .flex-row-items-end {
+    @apply flex flex-row items-end;
+  }
+
+  /* flex col */
+  .flex-col {
+    @apply flex flex-col;
+  }
+
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .flex-col-between {
+    @apply flex flex-col items-center justify-between;
+  }
+
+  .flex-col-end {
+    @apply flex flex-col items-center justify-end;
+  }
+
+  .flex-col-items-start {
+    @apply flex flex-col items-start;
+  }
+
+  .flex-col-items-end {
+    @apply flex flex-col items-end;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 전역 트렌디 스크롤바 (얇고 둥근 스타일) */
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--ui-300);
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--ui-400);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ui-300) transparent;
+  }
+
+  /* Card size presets */
+  .card-size-sm {
+    @apply w-[280px] h-[270px] p-8 flex flex-col gap-2;
+  }
+
+  .card-size-md {
+    @apply max-w-[580px] h-[180px] p-10;
+  }
+
+  .card-size-lg {
+    @apply max-w-[1180px] h-[160px] p-10;
+  }
+
+  .card-size-lg--with-header {
+    @apply h-[230px];
+  }
+
+  .card-avatar-sm {
+    @apply w-[50px] h-[50px];
+  }
+
+  .card-avatar-md {
+    @apply w-[80px] h-[80px];
+  }
+
+  /* Project size presets */
+  .project-size-sm {
+    @apply w-[270px] h-[230px];
+  }
+
+  .project-size-md {
+    @apply w-[540px] h-[200px];
+  }
+
+  .project-size-lg {
+    @apply w-[1080px] h-[200px];
+  }
+
+  /* 애니메이션 */
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-out-right {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.5s ease-out;
+  }
+
+  .animate-slide-out-right {
+    animation: slide-out-right 1s ease-out;
+  }
+
+  @keyframes modal-pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .animate-modal-pop-in {
+    animation: modal-pop-in 0.25s ease-out;
+  }
+
+  @keyframes dropdown-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-dropdown-slide-up {
+    animation: dropdown-slide-up 0.18s ease-out;
+    will-change: transform, opacity;
+  }
+
+  @keyframes modal-pop-out {
+    from {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.96) translateY(-8px);
+    }
+  }
+
+  .animate-modal-pop-out {
+    animation: modal-pop-out 0.2s ease-in;
+  }
+
+  @keyframes notification-item-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-notification-item-in {
+    animation: notification-item-in 0.25s ease-out forwards;
+  }
+
+  /* 추천 프로젝트/개발자 카드: 호버 시 그라데이션 테두리 */
+  .recommend-card-hover-border:hover {
+    border-color: transparent !important;
+    background:
+      linear-gradient(var(--ui-bg), var(--ui-bg)) padding-box,
+      linear-gradient(90deg, rgba(114, 110, 255, 0.4) 0%, rgba(219, 80, 179, 0.4) 100%) border-box !important;
+  }
+}
+
+/* 호버 그라데이션 테두리 - 레이어 밖에서 적용 보장 (프로젝트/개발자 보기 카드 포함) */
+.recommend-card-hover-border:hover {
+  border-color: transparent !important;
+  background:
+    linear-gradient(var(--ui-bg), var(--ui-bg)) padding-box,
+    linear-gradient(90deg, rgba(114, 110, 255, 0.4) 0%, rgba(219, 80, 179, 0.4) 100%) border-box !important;
+}
