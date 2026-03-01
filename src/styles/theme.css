@@ -208,6 +208,14 @@
   font-weight: 400;
 }
 
+.text-caption1-bd {
+  font-family: var(--font-pretendard);
+  font-size: 1.2rem;
+  line-height: 133.4%;
+  letter-spacing: 0.0252em;
+  font-weight: 600;
+}
+
 @layer utilities {
   :lang(en) .text-display1,
   :lang(en) .text-title1,

@@ -6,6 +6,7 @@ import { cn } from '@/lib/cn';
 type TabItem<T extends string> = {
   value: T;
   label: ReactNode;
+  count?: number;
 };
 
 type CommonTabsProps<T extends string> = {
@@ -33,15 +34,32 @@ export default function CommonTabs<T extends string>({
             type="button"
             onClick={() => onChange(t.value)}
             className={cn(
-              'cursor-pointer rounded-full border-2 px-24pxr py-12pxr text-headline1 transition',
+              'group flex items-center gap-8pxr cursor-pointer rounded-full border-2 px-24pxr py-12pxr transition text-my-tab-text',
               {
-                'bg-my-tab-active text-tab-bg-active': active,
-                'border-my-tab-border bg-my-tab-inactive text-my-tab-text': !active,
+                'bg-my-tab-active border-transparent': active,
+                'border-my-tab-border bg-my-tab-inactive': !active,
               },
               itemClassName,
             )}
           >
-            {t.label}
+            <span className={cn(
+              'text-headline1 transition',
+              {
+                'text-tab-bg-active': active,
+                'group-hover:text-tab-text-active': !active,
+              },
+            )}>{t.label}</span>
+            {t.count !== undefined && (
+              <span className={cn(
+                'inline-flex items-center justify-center min-w-24pxr h-22pxr px-6pxr rounded-full bg-ui-700 text-caption1-bd mt-1pxr transition',
+                {
+                  'text-tab-bg-active': active,
+                  'group-hover:text-tab-bg-active': !active,
+                },
+              )}>
+                {t.count}
+              </span>
+            )}
           </button>
         );
       })}

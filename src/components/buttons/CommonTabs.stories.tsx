@@ -29,6 +29,20 @@ function TwoTabsDemo() {
   );
 }
 
+function WithCountDemo() {
+  const [value, setValue] = useState('project');
+  return (
+    <CommonTabs
+      value={value}
+      onChange={setValue}
+      items={[
+        { value: 'project', label: '제안한 개발자'},
+        { value: 'developer', label: '개발자 지원 현황', count: 12 },
+      ]}
+    />
+  );
+}
+
 function ThreeTabsDemo() {
   const [value, setValue] = useState('pm');
   return (
@@ -50,4 +64,8 @@ export const Default: Story = {
 
 export const ThreeTabs: Story = {
   render: () => <ThreeTabsDemo />,
+};
+
+export const WithCount: Story = {
+  render: () => <WithCountDemo />,
 };

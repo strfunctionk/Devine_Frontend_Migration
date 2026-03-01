@@ -18,6 +18,7 @@ const twMerge = createTailwindMerge(() => {
         'text-body1',
         'text-label1',
         'text-caption1',
+        'text-caption1-bd',
       ],
     },
   };
