@@ -183,6 +183,14 @@
   font-weight: 600;
 }
 
+.text-heading2-md {
+  font-family: var(--font-pretendard);
+  font-size: 2rem;
+  line-height: 140%;
+  letter-spacing: -0.012em;
+  font-weight: 500;
+}
+
 .text-headline1 {
   font-family: var(--font-pretendard);
   font-size: 1.8rem;

@@ -14,6 +14,7 @@ const twMerge = createTailwindMerge(() => {
         'text-title3',
         'text-heading1',
         'text-heading2',
+        'text-heading2-md',
         'text-headline1',
         'text-body1',
         'text-label1',
