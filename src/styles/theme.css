@@ -88,8 +88,12 @@
   --breakpoint-tablet-max: 743px;
   --breakpoint-phone-max: 389px;
 
+}
+
+:root {
   /* shadows */
-  --shadow-segment: 0px 2px 8px -4px rgba(0, 0, 0, 0.20);
+  /* 어두울 때 밝은 그림자 디자인에는 없음 */
+  --shadow-segment: 0px 2px 8px -4px rgba(255, 255, 255, 0.20);
 }
 
 [data-theme="light"] {
@@ -126,6 +130,9 @@
 
   --negative-bg: #fff1f0;
   --negative-text: #f87171;
+
+  /* shadows */
+  --shadow-segment: 0px 2px 8px -4px rgba(0, 0, 0, 0.20);
 }
 
 .text-display1 {

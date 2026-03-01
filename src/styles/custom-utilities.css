@@ -1,4 +1,8 @@
 @layer utilities {
+  .shadow-segment {
+    box-shadow: var(--shadow-segment);
+  }
+
   /* flex row */
   .flex-row {
     @apply flex flex-row;
