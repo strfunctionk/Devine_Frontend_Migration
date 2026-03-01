@@ -27,7 +27,17 @@ const nextConfig: NextConfig = {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
         resourceQuery: { not: [...(fileLoaderRule.resourceQuery?.not || []), /url/] },
-        use: ['@svgr/webpack'],
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgo: true,
+              svgoConfig: {
+                plugins: [{ name: 'removeDimensions' }],
+              },
+            },
+          },
+        ],
       },
     );
 
