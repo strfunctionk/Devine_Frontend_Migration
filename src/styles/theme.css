@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 @theme {
   /* ===========================
     UI Color aliases (Tailwind token용)
@@ -85,6 +87,9 @@
   --breakpoint-phone: 390px;
   --breakpoint-tablet-max: 743px;
   --breakpoint-phone-max: 389px;
+
+  /* shadows */
+  --shadow-segment: 0px 2px 8px -4px rgba(0, 0, 0, 0.20);
 }
 
 [data-theme="light"] {
@@ -123,89 +128,97 @@
   --negative-text: #f87171;
 }
 
+.text-display1 {
+  font-family: var(--font-pretendard);
+  font-size: 5.6rem;
+  line-height: 128.6%;
+  letter-spacing: -0.0319em;
+  font-weight: 700;
+}
+
+.text-title1 {
+  font-family: var(--font-pretendard);
+  font-size: 3.6rem;
+  line-height: 133.4%;
+  letter-spacing: -0.027em;
+  font-weight: 700;
+}
+
+.text-title2 {
+  font-family: var(--font-pretendard);
+  font-size: 2.8rem;
+  line-height: 135.8%;
+  letter-spacing: -0.0236em;
+  font-weight: 700;
+}
+
+.text-title3 {
+  font-family: var(--font-pretendard);
+  font-size: 2.2rem;
+  line-height: 133.4%;
+  letter-spacing: -0.023em;
+  font-weight: 700;
+}
+
+.text-heading1 {
+  font-family: var(--font-pretendard);
+  font-size: 2.2rem;
+  line-height: 140%;
+  letter-spacing: -0.012em;
+  font-weight: 700;
+}
+
+.text-heading2 {
+  font-family: var(--font-pretendard);
+  font-size: 2rem;
+  line-height: 140%;
+  letter-spacing: -0.012em;
+  font-weight: 600;
+}
+
+.text-headline1 {
+  font-family: var(--font-pretendard);
+  font-size: 1.8rem;
+  line-height: 144.5%;
+  letter-spacing: -0.002em;
+  font-weight: 600;
+}
+
+.text-body1 {
+  font-family: var(--font-pretendard);
+  font-size: 1.6rem;
+  line-height: 150%;
+  letter-spacing: 0.0057em;
+  font-weight: 400;
+}
+
+.text-label1 {
+  font-family: var(--font-pretendard);
+  font-size: 1.4rem;
+  line-height: 142.9%;
+  letter-spacing: 0.0145em;
+  font-weight: 600;
+}
+
+.text-caption1 {
+  font-family: var(--font-pretendard);
+  font-size: 1.2rem;
+  line-height: 133.4%;
+  letter-spacing: 0.0252em;
+  font-weight: 400;
+}
+
 @layer utilities {
-  .Display1 {
-    font-family: var(--font-pretendard);
-    font-size: 5.6rem;
-    line-height: 128.6%;
-    letter-spacing: -0.0319em;
-  }
-
-  .Title1 {
-    font-family: var(--font-pretendard);
-    font-size: 3.6rem;
-    line-height: 133.4%;
-    letter-spacing: -0.027em;
-  }
-
-  .Title2 {
-    font-family: var(--font-pretendard);
-    font-size: 2.8rem;
-    line-height: 135.8%;
-    letter-spacing: -0.0236em;
-  }
-
-  .Title3 {
-    font-family: var(--font-pretendard);
-    font-size: 2.2rem;
-    line-height: 133.4%;
-    letter-spacing: -0.023em;
-  }
-
-  .Heading1 {
-    font-family: var(--font-pretendard);
-    font-size: 2.2rem;
-    line-height: 140%;
-    letter-spacing: -0.012em;
-  }
-
-  .Heading2 {
-    font-family: var(--font-pretendard);
-    font-size: 2rem;
-    line-height: 140%;
-    letter-spacing: -0.012em;
-  }
-
-  .Headline1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.8rem;
-    line-height: 144.5%;
-    letter-spacing: -0.002em;
-  }
-
-  .Body1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.6rem;
-    line-height: 150%;
-    letter-spacing: 0.0057em;
-  }
-
-  .Label1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.4rem;
-    line-height: 142.9%;
-    letter-spacing: 0.0145em;
-  }
-
-  .Caption1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.2rem;
-    line-height: 133.4%;
-    letter-spacing: 0.0252em;
-  }
-
-  :lang(en) .Display1,
-  :lang(en) .Title1,
-  :lang(en) .Title2,
-  :lang(en) .Title3,
-  :lang(en) .Heading1,
-  :lang(en) .Heading2,
-  :lang(en) .Headline1,
-  :lang(en) .Body1,
-  :lang(en) .Label1,
-  :lang(en) .Caption1 {
-    font-weight: 500;
-  }
+  :lang(en) .text-display1,
+  :lang(en) .text-title1,
+  :lang(en) .text-title2,
+  :lang(en) .text-title3,
+  :lang(en) .text-heading1,
+  :lang(en) .text-heading2,
+  :lang(en) .text-headline1,
+  :lang(en) .text-body1,
+  :lang(en) .text-label1,
+  :lang(en) .text-caption1
 
   /* 알림 배지 울리는 듯한 펄스 (초창기) */
   @keyframes notification-badge-pulse {

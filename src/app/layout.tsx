@@ -2,7 +2,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Providers from './providers';
-import './globals.css';
+import '../styles/globals.css';
 
 const pretendard = localFont({
   src: [
