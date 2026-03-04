@@ -31,10 +31,8 @@ const Gnb = () => {
         </SignedIn>
         {/* 다크/라이트 모드 토글 버튼*/}
         <ModeButton />
-        {/* 알림 버튼 */}
-        {/* TODO : hasNotification props는 나중에 백엔드에서 받아오는 값으로 변경 */}
-        {/* TODO : onClick 이벤트는 나중에 알림 컴포넌트 추가 시 추가*/}
-        <NotificationButton hasNotification={true} onClick={() => {}} />
+        {/* 알림 버튼 - TODO: API 연결 시 useNotificationStore로 상태 관리 */}
+        <NotificationButton />
         {/* 로그인 상태에 따라 전환 */}
         <SignedOut>
           <AuthButton href="" label="회원가입/로그인" />

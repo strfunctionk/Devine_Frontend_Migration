@@ -34,7 +34,7 @@ export const LoggedOut: Story = {
       </div>
       <div className="flex items-center gap-16pxr shrink-0">
         <ModeButton />
-        <NotificationButton hasNotification={false} onClick={() => {}} />
+        <NotificationButton />
         <AuthButton href="" label="회원가입/로그인" />
         <MenuButton className="tablet:hidden" />
       </div>
@@ -58,7 +58,7 @@ export const LoggedIn: Story = {
       <div className="flex items-center gap-16pxr shrink-0">
         <ProjectRegisterButton href="" label="프로젝트 등록하기" className="max-phone:hidden" />
         <ModeButton />
-        <NotificationButton hasNotification={true} onClick={() => {}} />
+        <NotificationButton />
         <TextButton href="" label="내 정보" />
         <MenuButton className="tablet:hidden" />
       </div>

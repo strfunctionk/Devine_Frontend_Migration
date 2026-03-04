@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { cn } from "@/lib/cn";
 
 type IconButtonProps = {
@@ -9,26 +10,35 @@ type IconButtonProps = {
   "aria-label"?: string;
 };
 
-const IconButton = ({
-  icon: Icon,
-  onClick,
-  className,
-  iconClassName,
-  hover = true,
-  "aria-label": ariaLabel,
-}: IconButtonProps) => {
-  return (
-    <button
-      className={cn(
-        "flex h-36pxr w-36pxr rounded-8pxr transition-colors duration-150 items-center justify-center cursor-pointer",
-        hover ? "bg-ui-bg hover:bg-ui-100" : "bg-transparent",
-        className,
-      )}
-      aria-label={ariaLabel}
-      onClick={onClick}>
-      <Icon className={cn("h-full w-full", iconClassName)} />
-    </button>
-  );
-};
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    {
+      icon: Icon,
+      onClick,
+      className,
+      iconClassName,
+      hover = true,
+      "aria-label": ariaLabel,
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          "flex p-6pxr rounded-8pxr transition-colors duration-150 items-center justify-center cursor-pointer text-ui-600",
+          hover ? "bg-ui-bg hover:bg-ui-100" : "bg-transparent",
+          className
+        )}
+        aria-label={ariaLabel}
+        onClick={onClick}
+      >
+        <Icon className={cn("h-24pxr w-24pxr", iconClassName)} />
+      </button>
+    );
+  }
+);
+
+IconButton.displayName = "IconButton";
 
 export default IconButton;
