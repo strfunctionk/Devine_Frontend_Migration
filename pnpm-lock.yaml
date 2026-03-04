@@ -13,7 +13,7 @@ importers:
         version: 6.39.0(next@15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@storybook/test':
         specifier: ^8.6.15
-        version: 8.6.15(storybook@9.1.19(@testing-library/dom@10.4.1))
+        version: 8.6.15(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@tanstack/react-query':
         specifier: ^5.90.21
         version: 5.90.21(react@19.2.3)
@@ -23,6 +23,9 @@ importers:
       next:
         specifier: 15.5.12
         version: 15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      next-themes:
+        specifier: ^0.4.6
+        version: 0.4.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       pretendard:
         specifier: ^1.3.9
         version: 1.3.9
@@ -47,22 +50,25 @@ importers:
         version: 2.4.4
       '@chromatic-com/storybook':
         specifier: ^4.1.3
-        version: 4.1.3(storybook@9.1.19(@testing-library/dom@10.4.1))
+        version: 4.1.3(storybook@9.1.19(@testing-library/dom@10.4.0))
+      '@clerk/testing':
+        specifier: ^2.0.1
+        version: 2.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@eslint/eslintrc':
         specifier: ^3.3.4
         version: 3.3.4
       '@storybook/addon-a11y':
         specifier: ^9.1.19
-        version: 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))
+        version: 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@storybook/addon-docs':
         specifier: ^9.1.19
-        version: 9.1.19(@types/react@19.2.14)(storybook@9.1.19(@testing-library/dom@10.4.1))
+        version: 9.1.19(@types/react@19.2.14)(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@storybook/addon-onboarding':
         specifier: ^9.1.19
-        version: 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))
+        version: 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@storybook/nextjs':
         specifier: ^9.1.19
-        version: 9.1.19(esbuild@0.25.12)(next@15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))(type-fest@2.19.0)(typescript@5.9.3)(webpack-hot-middleware@2.26.1)(webpack@5.105.3(esbuild@0.25.12))
+        version: 9.1.19(esbuild@0.25.12)(next@15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))(type-fest@2.19.0)(typescript@5.9.3)(webpack-hot-middleware@2.26.1)(webpack@5.105.3(esbuild@0.25.12))
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.9.3)
@@ -89,7 +95,7 @@ importers:
         version: 7.0.1(eslint@9.39.3(jiti@2.6.1))
       storybook:
         specifier: ^9.1.19
-        version: 9.1.19(@testing-library/dom@10.4.1)
+        version: 9.1.19(@testing-library/dom@10.4.0)
       tailwindcss:
         specifier: ^4
         version: 4.2.1
@@ -740,6 +746,10 @@ packages:
     resolution: {integrity: sha512-sVR214TlJ5vsRprDE9EiZpqeNq/YVhCQLtAZ19ugjNf1C9xMX28JoMyodI/dU5FLBelmgSyjBAjodPULjIeF+w==}
     engines: {node: '>=18.17.0'}
 
+  '@clerk/backend@3.0.1':
+    resolution: {integrity: sha512-U5E+KpNlFlaJRdpOoOltIV8o1YjTWw5affsugEb/kIvGceSP6SzvNEBr/TnCY+2yu87Vq22ShEycpQBlse2Bkw==}
+    engines: {node: '>=20.9.0'}
+
   '@clerk/clerk-react@5.61.3':
     resolution: {integrity: sha512-W21aNEeHtqh3xJLuW5g2ydben/1D5pSnxsl/kCnv0IY1zma7lO+aIJ7Br2bR4FKKkiu695mPnjtY+fvkQmCXBg==}
     engines: {node: '>=18.17.0'}
@@ -765,6 +775,30 @@ packages:
       react:
         optional: true
       react-dom:
+        optional: true
+
+  '@clerk/shared@4.0.0':
+    resolution: {integrity: sha512-Z3QhVud7FM9SBgSGxyUdC+nDg6vro+5zJ5gDO1To3FDzRLWKW4xIGd5y8UBqWZMMMHWaSDiZvYlUynb+gs8PnQ==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+      react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
+  '@clerk/testing@2.0.1':
+    resolution: {integrity: sha512-DLXEnhnv0vFP1ECZeUrehZci/eK1qif4jcQwGJWiPt8sk3csh3DmZim8iXrCaB5k++NJ5j0WnpKcS5ile268EQ==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      '@playwright/test': ^1
+      cypress: ^13 || ^14
+    peerDependenciesMeta:
+      '@playwright/test':
+        optional: true
+      cypress:
         optional: true
 
   '@clerk/types@4.101.20':
@@ -1539,6 +1573,9 @@ packages:
   '@tailwindcss/postcss@4.2.1':
     resolution: {integrity: sha512-OEwGIBnXnj7zJeonOh6ZG9woofIjGrd2BORfvE5p9USYKDCZoQmfqLcfNiRWoJlRWLdNPn2IgVZuWAOM4iTYMw==}
 
+  '@tanstack/query-core@5.90.16':
+    resolution: {integrity: sha512-MvtWckSVufs/ja463/K4PyJeqT+HMlJWtw6PrCpywznd2NSgO3m4KwO9RqbFqGg6iDE8vVMFWMeQI4Io3eEYww==}
+
   '@tanstack/query-core@5.90.20':
     resolution: {integrity: sha512-OMD2HLpNouXEfZJWcKeVKUgQ5n+n3A2JFmBaScpNDUqSrQSjiveC7dKMe53uJUg1nDG16ttFPz2xfilz6i2uVg==}
 
@@ -1549,10 +1586,6 @@ packages:
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
-    engines: {node: '>=18'}
-
-  '@testing-library/dom@10.4.1':
-    resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
     engines: {node: '>=18'}
 
   '@testing-library/jest-dom@6.5.0':
@@ -2503,6 +2536,10 @@ packages:
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
+
+  dotenv@17.2.2:
+    resolution: {integrity: sha512-Sf2LSQP+bOlhKWWyhFsn0UsfdK/kCWRv1iuA2gXAwt3dyNabr6QSj00I2V10pidqz69soatm9ZwZvpQMTIOd5Q==}
+    engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -3467,6 +3504,12 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  next-themes@0.4.6:
+    resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   next@15.5.12:
     resolution: {integrity: sha512-Fi/wQ4Etlrn60rz78bebG1i1SR20QxvV8tVp6iJspjLUSHcZoeUXCt+vmWoEcza85ElZzExK/jJ/F6SvtGktjA==}
@@ -5309,13 +5352,13 @@ snapshots:
   '@biomejs/cli-win32-x64@2.4.4':
     optional: true
 
-  '@chromatic-com/storybook@4.1.3(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@chromatic-com/storybook@4.1.3(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
       '@neoconfetti/react': 1.0.0
       chromatic: 13.3.5
       filesize: 10.1.6
       jsonfile: 6.2.0
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       strip-ansi: 7.2.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
@@ -5325,6 +5368,15 @@ snapshots:
     dependencies:
       '@clerk/shared': 3.47.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@clerk/types': 4.101.20(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      standardwebhooks: 1.0.0
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
+  '@clerk/backend@3.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      '@clerk/shared': 4.0.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       standardwebhooks: 1.0.0
       tslib: 2.8.1
     transitivePeerDependencies:
@@ -5361,6 +5413,26 @@ snapshots:
     optionalDependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
+
+  '@clerk/shared@4.0.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      '@tanstack/query-core': 5.90.16
+      dequal: 2.0.3
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.5
+      std-env: 3.10.0
+    optionalDependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+
+  '@clerk/testing@2.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      '@clerk/backend': 3.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@clerk/shared': 4.0.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      dotenv: 17.2.2
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   '@clerk/types@4.101.20(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
@@ -5721,32 +5793,32 @@ snapshots:
 
   '@stablelib/base64@1.0.1': {}
 
-  '@storybook/addon-a11y@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/addon-a11y@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
       '@storybook/global': 5.0.0
       axe-core: 4.11.1
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
 
-  '@storybook/addon-docs@9.1.19(@types/react@19.2.14)(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/addon-docs@9.1.19(@types/react@19.2.14)(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
       '@mdx-js/react': 3.1.1(@types/react@19.2.14)(react@19.2.3)
-      '@storybook/csf-plugin': 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))
+      '@storybook/csf-plugin': 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@storybook/icons': 1.6.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@storybook/react-dom-shim': 9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))
+      '@storybook/react-dom-shim': 9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-onboarding@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/addon-onboarding@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
 
-  '@storybook/builder-webpack5@9.1.19(esbuild@0.25.12)(storybook@9.1.19(@testing-library/dom@10.4.1))(typescript@5.9.3)':
+  '@storybook/builder-webpack5@9.1.19(esbuild@0.25.12)(storybook@9.1.19(@testing-library/dom@10.4.0))(typescript@5.9.3)':
     dependencies:
-      '@storybook/core-webpack': 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))
+      '@storybook/core-webpack': 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))
       case-sensitive-paths-webpack-plugin: 2.4.0
       cjs-module-lexer: 1.4.3
       css-loader: 6.11.0(webpack@5.105.3(esbuild@0.25.12))
@@ -5754,7 +5826,7 @@ snapshots:
       fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.9.3)(webpack@5.105.3(esbuild@0.25.12))
       html-webpack-plugin: 5.6.6(webpack@5.105.3(esbuild@0.25.12))
       magic-string: 0.30.21
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       style-loader: 3.3.4(webpack@5.105.3(esbuild@0.25.12))
       terser-webpack-plugin: 5.3.16(esbuild@0.25.12)(webpack@5.105.3(esbuild@0.25.12))
       ts-dedent: 2.2.0
@@ -5771,14 +5843,14 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  '@storybook/core-webpack@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/core-webpack@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       ts-dedent: 2.2.0
 
-  '@storybook/csf-plugin@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/csf-plugin@9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       unplugin: 1.16.1
 
   '@storybook/global@5.0.0': {}
@@ -5788,13 +5860,13 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@storybook/instrumenter@8.6.15(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/instrumenter@8.6.15(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
       '@storybook/global': 5.0.0
       '@vitest/utils': 2.1.9
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
 
-  '@storybook/nextjs@9.1.19(esbuild@0.25.12)(next@15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))(type-fest@2.19.0)(typescript@5.9.3)(webpack-hot-middleware@2.26.1)(webpack@5.105.3(esbuild@0.25.12))':
+  '@storybook/nextjs@9.1.19(esbuild@0.25.12)(next@15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))(type-fest@2.19.0)(typescript@5.9.3)(webpack-hot-middleware@2.26.1)(webpack@5.105.3(esbuild@0.25.12))':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.29.0)
@@ -5810,9 +5882,9 @@ snapshots:
       '@babel/preset-typescript': 7.28.5(@babel/core@7.29.0)
       '@babel/runtime': 7.28.6
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.17(react-refresh@0.14.2)(type-fest@2.19.0)(webpack-hot-middleware@2.26.1)(webpack@5.105.3(esbuild@0.25.12))
-      '@storybook/builder-webpack5': 9.1.19(esbuild@0.25.12)(storybook@9.1.19(@testing-library/dom@10.4.1))(typescript@5.9.3)
-      '@storybook/preset-react-webpack': 9.1.19(esbuild@0.25.12)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))(typescript@5.9.3)
-      '@storybook/react': 9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))(typescript@5.9.3)
+      '@storybook/builder-webpack5': 9.1.19(esbuild@0.25.12)(storybook@9.1.19(@testing-library/dom@10.4.0))(typescript@5.9.3)
+      '@storybook/preset-react-webpack': 9.1.19(esbuild@0.25.12)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))(typescript@5.9.3)
+      '@storybook/react': 9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))(typescript@5.9.3)
       '@types/semver': 7.7.1
       babel-loader: 9.2.1(@babel/core@7.29.0)(webpack@5.105.3(esbuild@0.25.12))
       css-loader: 6.11.0(webpack@5.105.3(esbuild@0.25.12))
@@ -5828,7 +5900,7 @@ snapshots:
       resolve-url-loader: 5.0.0
       sass-loader: 16.0.7(webpack@5.105.3(esbuild@0.25.12))
       semver: 7.7.4
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       style-loader: 3.3.4(webpack@5.105.3(esbuild@0.25.12))
       styled-jsx: 5.1.7(@babel/core@7.29.0)(react@19.2.3)
       tsconfig-paths: 4.2.0
@@ -5854,9 +5926,9 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  '@storybook/preset-react-webpack@9.1.19(esbuild@0.25.12)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))(typescript@5.9.3)':
+  '@storybook/preset-react-webpack@9.1.19(esbuild@0.25.12)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))(typescript@5.9.3)':
     dependencies:
-      '@storybook/core-webpack': 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.1))
+      '@storybook/core-webpack': 9.1.19(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@storybook/react-docgen-typescript-plugin': 1.0.6--canary.9.0c3f3b7.0(typescript@5.9.3)(webpack@5.105.3(esbuild@0.25.12))
       '@types/semver': 7.7.1
       find-up: 7.0.0
@@ -5866,7 +5938,7 @@ snapshots:
       react-dom: 19.2.3(react@19.2.3)
       resolve: 1.22.11
       semver: 7.7.4
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
       tsconfig-paths: 4.2.0
       webpack: 5.105.3(esbuild@0.25.12)
     optionalDependencies:
@@ -5892,32 +5964,32 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@storybook/react-dom-shim@9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/react-dom-shim@9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
 
-  '@storybook/react@9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))(typescript@5.9.3)':
+  '@storybook/react@9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))(typescript@5.9.3)':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/react-dom-shim': 9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.1))
+      '@storybook/react-dom-shim': 9.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.19(@testing-library/dom@10.4.0))
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
     optionalDependencies:
       typescript: 5.9.3
 
-  '@storybook/test@8.6.15(storybook@9.1.19(@testing-library/dom@10.4.1))':
+  '@storybook/test@8.6.15(storybook@9.1.19(@testing-library/dom@10.4.0))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.6.15(storybook@9.1.19(@testing-library/dom@10.4.1))
+      '@storybook/instrumenter': 8.6.15(storybook@9.1.19(@testing-library/dom@10.4.0))
       '@testing-library/dom': 10.4.0
       '@testing-library/jest-dom': 6.5.0
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
       '@vitest/expect': 2.0.5
       '@vitest/spy': 2.0.5
-      storybook: 9.1.19(@testing-library/dom@10.4.1)
+      storybook: 9.1.19(@testing-library/dom@10.4.0)
 
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0(@babel/core@7.29.0)':
     dependencies:
@@ -6085,6 +6157,8 @@ snapshots:
       postcss: 8.5.6
       tailwindcss: 4.2.1
 
+  '@tanstack/query-core@5.90.16': {}
+
   '@tanstack/query-core@5.90.20': {}
 
   '@tanstack/react-query@5.90.21(react@19.2.3)':
@@ -6101,17 +6175,6 @@ snapshots:
       chalk: 4.1.2
       dom-accessibility-api: 0.5.16
       lz-string: 1.5.0
-      pretty-format: 27.5.1
-
-  '@testing-library/dom@10.4.1':
-    dependencies:
-      '@babel/code-frame': 7.29.0
-      '@babel/runtime': 7.28.6
-      '@types/aria-query': 5.0.4
-      aria-query: 5.3.0
-      dom-accessibility-api: 0.5.16
-      lz-string: 1.5.0
-      picocolors: 1.1.1
       pretty-format: 27.5.1
 
   '@testing-library/jest-dom@6.5.0':
@@ -6137,9 +6200,9 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.0
 
-  '@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1)':
+  '@testing-library/user-event@14.6.1(@testing-library/dom@10.4.0)':
     dependencies:
-      '@testing-library/dom': 10.4.1
+      '@testing-library/dom': 10.4.0
 
   '@trysound/sax@0.2.0': {}
 
@@ -7182,6 +7245,8 @@ snapshots:
     dependencies:
       no-case: 3.0.4
       tslib: 2.8.1
+
+  dotenv@17.2.2: {}
 
   dunder-proto@1.0.1:
     dependencies:
@@ -8294,6 +8359,11 @@ snapshots:
 
   neo-async@2.6.2: {}
 
+  next-themes@0.4.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+    dependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+
   next@15.5.12(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@next/env': 15.5.12
@@ -9018,11 +9088,11 @@ snapshots:
       es-errors: 1.3.0
       internal-slot: 1.1.0
 
-  storybook@9.1.19(@testing-library/dom@10.4.1):
+  storybook@9.1.19(@testing-library/dom@10.4.0):
     dependencies:
       '@storybook/global': 5.0.0
       '@testing-library/jest-dom': 6.9.1
-      '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.1)
+      '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.0)
       '@vitest/expect': 3.2.4
       '@vitest/mocker': 3.2.4
       '@vitest/spy': 3.2.4

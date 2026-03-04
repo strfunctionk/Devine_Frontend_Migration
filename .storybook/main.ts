@@ -1,7 +1,14 @@
 import path from 'node:path';
+import { config as loadEnv } from 'dotenv';
 import type { StorybookConfig } from '@storybook/nextjs';
 
+loadEnv({ path: path.resolve(__dirname, '../.env.local') });
+
 const config: StorybookConfig = {
+  env: (existing) => ({
+    ...existing,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ?? '',
+  }),
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@chromatic-com/storybook',
