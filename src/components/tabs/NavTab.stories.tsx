@@ -1,25 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/nextjs';
-import { useState } from 'react';
-import NavTabs from './NavTabs';
+import type { Meta, StoryObj } from "@storybook/nextjs";
+import { useState } from "react";
+import NavTab from "./NavTab";
 
 const meta = {
-  component: NavTabs,
-  tags: ['autodocs'],
+  component: NavTab,
+  tags: ["autodocs"],
   args: {
     items: [],
   },
-} satisfies Meta<typeof NavTabs>;
+} satisfies Meta<typeof NavTab>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 function MyProjectTabsDemo() {
-  const [active, setActive] = useState('pm');
+  const [active, setActive] = useState("pm");
   return (
-    <NavTabs
+    <NavTab
       items={[
-        { href: 'pm', label: 'PM' },
-        { href: 'dev', label: '개발자' },
+        { href: "pm", label: "PM" },
+        { href: "dev", label: "개발자" },
       ]}
       isActive={(href) => href === active}
       onTabClick={setActive}
@@ -28,12 +28,12 @@ function MyProjectTabsDemo() {
 }
 
 function SearchTabsDemo() {
-  const [active, setActive] = useState('project');
+  const [active, setActive] = useState("project");
   return (
-    <NavTabs
+    <NavTab
       items={[
-        { href: 'project', label: '프로젝트' },
-        { href: 'developer', label: '개발자' },
+        { href: "project", label: "프로젝트" },
+        { href: "developer", label: "개발자" },
       ]}
       isActive={(href) => href === active}
       onTabClick={setActive}
@@ -42,13 +42,13 @@ function SearchTabsDemo() {
 }
 
 function ApplicationStatusTabsDemo() {
-  const [active, setActive] = useState('applying');
+  const [active, setActive] = useState("applying");
   return (
-    <NavTabs
+    <NavTab
       items={[
-        { href: 'applying', label: '지원 중' },
-        { href: 'in-progress', label: '진행 중' },
-        { href: 'done', label: '완료' },
+        { href: "applying", label: "지원 중" },
+        { href: "in-progress", label: "진행 중" },
+        { href: "done", label: "완료" },
       ]}
       isActive={(href) => href === active}
       onTabClick={setActive}
@@ -57,14 +57,14 @@ function ApplicationStatusTabsDemo() {
 }
 
 function ProposalStatusTabsDemo() {
-  const [active, setActive] = useState('proposed');
+  const [active, setActive] = useState("proposed");
   return (
-    <NavTabs
+    <NavTab
       items={[
-        { href: 'proposed', label: '제안됨' },
-        { href: 'status', label: '지원 현황' },
-        { href: 'in-progress', label: '진행중' },
-        { href: 'done', label: '완료' },
+        { href: "proposed", label: "제안됨" },
+        { href: "status", label: "지원 현황" },
+        { href: "in-progress", label: "진행중" },
+        { href: "done", label: "완료" },
       ]}
       isActive={(href) => href === active}
       onTabClick={setActive}

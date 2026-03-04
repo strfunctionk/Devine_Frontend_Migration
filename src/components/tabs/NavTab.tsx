@@ -9,7 +9,7 @@ type NavTabItem = {
   label: string;
 };
 
-type NavTabsProps = {
+type NavTabProps = {
   items: NavTabItem[];
   isActive?: (href: string) => boolean;
   onTabClick?: (href: string) => void;
@@ -17,7 +17,7 @@ type NavTabsProps = {
   itemClassName?: string;
 };
 
-export default function NavTabs({ items, isActive, onTabClick, className, itemClassName }: NavTabsProps) {
+export default function NavTab({ items, isActive, onTabClick, className, itemClassName }: NavTabProps) {
   const pathname = usePathname();
   const router = useRouter();
   const checkActive = isActive ?? ((href) => pathname?.endsWith(`/${href}`));
