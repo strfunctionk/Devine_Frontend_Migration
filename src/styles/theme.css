@@ -212,7 +212,7 @@
   font-size: 1.6rem;
   line-height: 150%;
   letter-spacing: 0.0057em;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .text-body2-md {
@@ -229,6 +229,14 @@
   line-height: 142.9%;
   letter-spacing: 0.0145em;
   font-weight: 600;
+}
+
+.text-label1-md {
+  font-family: var(--font-pretendard);
+  font-size: 1.4rem;
+  line-height: 142.9%;
+  letter-spacing: 0.0145em;
+  font-weight: 500;
 }
 
 .text-caption1 {
