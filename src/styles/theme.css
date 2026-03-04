@@ -83,10 +83,10 @@
   --font-weight-bold: 700;
 
   /* breakpoints */
-  --breakpoint-tablet: 744px;
-  --breakpoint-phone: 390px;
-  --breakpoint-tablet-max: 743px;
-  --breakpoint-phone-max: 389px;
+  --breakpoint-tablet: 1080px;
+  --breakpoint-phone: 580px;
+  --breakpoint-tablet-max: 1079px;
+  --breakpoint-phone-max: 579px;
 
 }
 

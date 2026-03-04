@@ -5,6 +5,7 @@ import ModeButton from "./components/ModeButton";
 import NotificationButton from "./components/NotificationButton";
 import ProjectRegisterButton from "./components/ProjectRegisterButton";
 import TextButton from "./components/TextButton";
+import MenuButton from "./components/MenuButton";
 import Gnb from "./Gnb";
 
 const meta = {
@@ -21,20 +22,21 @@ type Story = StoryObj<typeof meta>;
 /** 비로그인 상태 */
 export const LoggedOut: Story = {
   render: () => (
-    <header className="flex items-center bg-ui-bg w-full h-80pxr px-80pxr gap-60pxr">
+    <header className="flex items-center bg-ui-bg w-full h-80pxr px-24pxr phone:px-48pxr tablet:px-80pxr justify-between">
       <div className="flex items-center gap-36pxr">
-        <LogoButton logoClassName="h-32pxr w-auto" />
-        <div className="flex items-center gap-20pxr">
+        <LogoButton logoClassName="h-36pxr w-auto" />
+        <div className="flex items-center gap-20pxr max-tablet:hidden">
           <TextButton href="" label="프로젝트/개발자 보기" underline />
           <TextButton href="" label="추천 프로젝트/개발자" underline />
           <TextButton href="" label="리포트" underline />
           <TextButton href="" label="지원현황" underline />
         </div>
       </div>
-      <div className="flex items-center gap-16pxr ml-auto">
+      <div className="flex items-center gap-16pxr shrink-0">
         <ModeButton />
         <NotificationButton hasNotification={false} onClick={() => {}} />
         <AuthButton href="" label="회원가입/로그인" />
+        <MenuButton className="tablet:hidden" />
       </div>
     </header>
   ),
@@ -43,21 +45,22 @@ export const LoggedOut: Story = {
 /** 로그인 상태 */
 export const LoggedIn: Story = {
   render: () => (
-    <header className="flex items-center bg-ui-bg w-full h-80pxr px-80pxr gap-60pxr">
+    <header className="flex items-center bg-ui-bg w-full h-80pxr px-24pxr phone:px-48pxr tablet:px-80pxr justify-between">
       <div className="flex items-center gap-36pxr">
-        <LogoButton logoClassName="h-32pxr w-auto" />
-        <div className="flex items-center gap-20pxr">
+        <LogoButton logoClassName="h-36pxr w-auto" />
+        <div className="flex items-center gap-20pxr max-tablet:hidden">
           <TextButton href="" label="프로젝트/개발자 보기" underline />
           <TextButton href="" label="추천 프로젝트/개발자" underline />
           <TextButton href="" label="리포트" underline />
           <TextButton href="" label="지원현황" underline />
         </div>
       </div>
-      <div className="flex items-center gap-16pxr ml-auto">
-        <ProjectRegisterButton href="" label="프로젝트 등록하기" />
+      <div className="flex items-center gap-16pxr shrink-0">
+        <ProjectRegisterButton href="" label="프로젝트 등록하기" className="max-phone:hidden" />
         <ModeButton />
         <NotificationButton hasNotification={true} onClick={() => {}} />
         <TextButton href="" label="내 정보" />
+        <MenuButton className="tablet:hidden" />
       </div>
     </header>
   ),
