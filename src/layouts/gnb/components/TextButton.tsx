@@ -20,7 +20,7 @@ const TextButton = ({
     <Link
       href={href}
       className={cn(
-        "inline-flex group relative shrink-0 cursor-pointer whitespace-nowrap px-8pxr py-5pxr text-body1 transition-all duration-150 ease-out hover:text-ui-800",
+        "inline-flex group relative shrink-0 cursor-pointer whitespace-nowrap px-8pxr py-5pxr text-body1-sb transition-all duration-150 ease-out hover:text-ui-800",
         {
           "text-ui-800": isActive,
           "text-ui-400": !isActive,

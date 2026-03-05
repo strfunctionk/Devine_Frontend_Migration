@@ -7,15 +7,13 @@ const Footer = () => {
       <nav className="hidden phone:flex phone:items-center gap-x-32pxr mb-8pxr">
         <Link
           href="/terms/service"
-          className="text-body1 text-ui-600 transition-colors hover:text-ui-800"
-        >
+          className="text-body1-md text-ui-600 transition-colors hover:text-ui-800">
           이용약관
         </Link>
         <div className="h-16pxr w-1pxr bg-ui-300" aria-hidden />
         <Link
           href="/terms/privacy"
-          className="text-body1 text-ui-600 transition-colors hover:text-ui-800"
-        >
+          className="text-body1-md text-ui-600 transition-colors hover:text-ui-800">
           개인정보처리방침
         </Link>
         <div className="h-16pxr w-1pxr bg-ui-300" aria-hidden />
@@ -23,8 +21,7 @@ const Footer = () => {
           href="https://groovy-ixora-43f.notion.site/DeVine-305b559ef26f803fb8f7c75f524ad35e"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-body1 text-ui-600 transition-colors hover:text-ui-800"
-        >
+          className="text-body1-md text-ui-600 transition-colors hover:text-ui-800">
           서비스 소개
         </a>
       </nav>

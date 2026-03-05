@@ -42,7 +42,7 @@ export default function CommonTab<T extends string>({
               itemClassName,
             )}>
             <span
-              className={cn("text-headline1 transition", {
+              className={cn("text-headline1-sb transition", {
                 "text-tab-bg-active": active,
                 "group-hover:text-tab-text-active": !active,
               })}>

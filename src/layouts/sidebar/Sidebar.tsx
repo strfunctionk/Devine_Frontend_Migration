@@ -38,14 +38,13 @@ const Sidebar = ({
       href=""
       onClick={onClose}
       className={cn(
-        "text-title3 group relative inline-block py-4pxr font-bold text-primary transition-all duration-300 ease-out",
-        isOpen ? "animate-slide-in-right" : "animate-slide-out-right"
+        "text-title3-sb group relative inline-block py-4pxr font-bold text-primary transition-all duration-300 ease-out",
+        isOpen ? "animate-slide-in-right" : "animate-slide-out-right",
       )}
       style={{
         animationDelay: isOpen ? "0ms" : `${navItems.length * 50}ms`,
         animationFillMode: "both",
-      }}
-    >
+      }}>
       {/* 호버 시 밑줄 애니메이션 */}
       <span className="relative inline-block">
         프로젝트 등록하기
@@ -60,9 +59,10 @@ const Sidebar = ({
       className={cn(
         "fixed inset-x-0 top-80pxr bottom-0 z-40 bg-ui-bg transition-opacity duration-300",
         { "tablet:hidden": !disableResponsive },
-        isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-      )}
-    >
+        isOpen
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0",
+      )}>
       <div className="flex flex-col gap-60pxr px-40pxr pt-100pxr max-phone:px-20pxr">
         {/* 프로젝트 등록 링크 - 로그인 시에만 표시 */}
         {forceShowAuthContent === true && projectRegisterLink}
@@ -82,16 +82,17 @@ const Sidebar = ({
                 href={item.path}
                 onClick={onClose}
                 className={cn(
-                  "text-title3 group relative inline-block py-4pxr font-bold text-ui-700 transition-all duration-300 ease-out hover:text-ui-800",
+                  "text-title3-sb group relative inline-block py-4pxr font-bold text-ui-700 transition-all duration-300 ease-out hover:text-ui-800",
                   isOpen ? "animate-slide-in-right" : "animate-slide-out-right",
-                  { "text-ui-800": item.path && isActive(item.path) }
+                  { "text-ui-800": item.path && isActive(item.path) },
                 )}
                 style={{
                   /* 열릴 때: 순차적 등장 / 닫힐 때: 역순 퇴장 */
-                  animationDelay: isOpen ? `${(index + 1) * 100}ms` : `${reverseIndex * 50}ms`,
+                  animationDelay: isOpen
+                    ? `${(index + 1) * 100}ms`
+                    : `${reverseIndex * 50}ms`,
                   animationFillMode: "both",
-                }}
-              >
+                }}>
                 {/* 호버 시 밑줄 애니메이션 */}
                 <span className="relative inline-block">
                   {item.label}
