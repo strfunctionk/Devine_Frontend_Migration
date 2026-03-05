@@ -94,6 +94,7 @@
   /* shadows */
   /* 어두울 때 밝은 그림자 디자인에는 없음 */
   --shadow-segment: 0px 2px 8px -4px rgba(255, 255, 255, 0.20);
+  --shadow-dropdown: 0 4px 8px 0 rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="light"] {
@@ -133,6 +134,7 @@
 
   /* shadows */
   --shadow-segment: 0px 2px 8px -4px rgba(0, 0, 0, 0.20);
+  --shadow-dropdown: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
 }
 
 /* weight suffix: -bd(700) | -sb(600) | -md(500) | no suffix = 400 */

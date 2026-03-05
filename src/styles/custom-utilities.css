@@ -3,6 +3,10 @@
     box-shadow: var(--shadow-segment);
   }
 
+  .shadow-dropdown {
+    box-shadow: var(--shadow-dropdown);
+  }
+
   /* flex row */
   .flex-row {
     @apply flex flex-row;
