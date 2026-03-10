@@ -33,7 +33,7 @@ module.exports = ({ matchUtilities }) => {
       mb: (value) => ({ marginBottom: value }),
       ml: (value) => ({ marginLeft: value }),
     },
-    { values: pxrValues },
+    { values: pxrValues, supportsNegativeValues: true },
   );
 
   matchUtilities(
@@ -65,7 +65,7 @@ module.exports = ({ matchUtilities }) => {
       left: (value) => ({ left: value }),
       inset: (value) => ({ inset: value }),
     },
-    { values: pxrValues },
+    { values: pxrValues, supportsNegativeValues: true },
   );
 
   matchUtilities(
