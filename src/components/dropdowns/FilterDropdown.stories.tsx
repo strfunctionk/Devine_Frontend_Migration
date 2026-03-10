@@ -10,6 +10,11 @@ const InteractiveFilterDropdown = (
     setSelected((prev) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
     );
+
+  if (args.type === "techstack") {
+    return <FilterDropdown {...args} />;
+  }
+
   return (
     <FilterDropdown {...args} selectedValues={selected} onToggle={toggle} />
   );
@@ -21,6 +26,12 @@ const meta = {
   render: (args: React.ComponentProps<typeof FilterDropdown>) => (
     <InteractiveFilterDropdown {...args} />
   ),
+} satisfies Meta<typeof FilterDropdown>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     title: "Filter Dropdown",
     options: [
@@ -29,12 +40,7 @@ const meta = {
       { label: "Option 3", value: "option3" },
     ],
   },
-} satisfies Meta<typeof FilterDropdown>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+};
 
 export const Projects: Story = {
   args: {
@@ -108,5 +114,13 @@ export const ExpectedPeriod: Story = {
       { label: "6개월 이상", value: "option5" },
     ],
     className: "w-220pxr",
+  },
+};
+
+export const Techstack: Story = {
+  args: {
+    type: "techstack",
+    title: "포지션/기술스택",
+    className: "w-440pxr",
   },
 };

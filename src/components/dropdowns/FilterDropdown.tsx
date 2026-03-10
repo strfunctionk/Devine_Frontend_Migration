@@ -1,73 +1,62 @@
 import { cn } from "@/lib/cn";
-import FilterCheckBoxButton from "../buttons/FilterCheckBoxButton";
 import FilterButton from "../buttons/FilterButton";
+import FilterCheckBoxOptionList, {
+  type FilterCheckBoxOption,
+} from "../common/FilterCheckBoxOptionList";
+import FilterTechstackOptionList from "../common/FilterTechstackOptionList";
 
-type FilterOption = {
-  label: string;
-  value: string;
+type CheckboxDropdownProps = {
+  type?: "checkbox";
+  options: FilterCheckBoxOption[];
+  selectedValues?: string[];
+  onToggle?: (value: string) => void;
+  onSelectAll?: () => void;
+  columns?: 1 | 2;
+  optionClassName?: string;
+};
+
+type TechstackDropdownProps = {
+  type: "techstack";
 };
 
 type FilterDropdownProps = {
   title: string;
-  options: FilterOption[];
-  selectedValues?: string[];
-  onToggle?: (value: string) => void;
-  onSelectAll?: () => void;
   onApply?: () => void;
   onReset?: () => void;
   onClose?: () => void;
-  columns?: 1 | 2; // 추가 확장 시 숫자 늘리기
   className?: string;
-  optionClassName?: string;
-};
+} & (CheckboxDropdownProps | TechstackDropdownProps);
 
 const FilterDropdown = ({
   title,
-  options,
-  selectedValues = [],
-  onToggle,
-  onSelectAll,
   onApply,
   onReset,
-  columns = 1,
   className,
+  ...props
 }: FilterDropdownProps) => {
-  const isAllSelected = options.length > 0 && selectedValues.length === options.length;
   return (
     <div
       className={cn(
-        "flex flex-col bg-ui-50 border border-ui-200 rounded-12pxr shadow-dropdown",
+        "flex flex-col bg-ui-50 border border-ui-200 rounded-12pxr shadow-dropdown pl-16pxr",
         className,
       )}>
       {/* 타이틀 부분 */}
-      <span className="text-ui-600 text-label1-md pl-16pxr pt-16pxr pb-8pxr">
+      <span className="text-ui-600 text-label1-md pt-16pxr pb-8pxr">
         {title}
       </span>
       {/* 옵션 목록 */}
-      <div
-        className={cn("grid py-8pxr", {
-          "grid-cols-1": columns === 1,
-          "grid-cols-2": columns === 2,
-        })}>
-        <div className="flex gap-x-12pxr items-center px-16pxr py-8pxr">
-          <FilterCheckBoxButton
-            checked={isAllSelected}
-            onChange={onSelectAll}
-          />
-          <span className="text-label1-md text-ui-900">전체</span>
-        </div>
-        {options.map((option) => (
-          <div
-            key={option.value}
-            className={cn("flex gap-x-12pxr items-center px-16pxr py-8pxr")}>
-            <FilterCheckBoxButton
-              checked={selectedValues.includes(option.value)}
-              onChange={() => onToggle?.(option.value)}
-            />
-            <span className="text-label1-md text-ui-900">{option.label}</span>
-          </div>
-        ))}
-      </div>
+      {props.type === "techstack" ? (
+        <FilterTechstackOptionList />
+      ) : (
+        <FilterCheckBoxOptionList
+          options={props.options}
+          selectedValues={props.selectedValues}
+          onToggle={props.onToggle}
+          onSelectAll={props.onSelectAll}
+          columns={props.columns}
+          className={props.optionClassName}
+        />
+      )}
       {/* 푸터 부분 */}
       <div className="flex justify-end gap-x-8pxr p-8pxr">
         <FilterButton
