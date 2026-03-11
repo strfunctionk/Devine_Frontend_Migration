@@ -39,23 +39,28 @@ const CommonChip = ({
           : undefined
       }
       className={cn(
-        "flex relative cursor-pointer items-center gap-8pxr px-12pxr py-8pxr border border-ui-200 bg-ui-50 rounded-full transition-colors hover:border-primary active:border-primary",
+        "inline-flex relative cursor-pointer items-center gap-8pxr px-12pxr py-8pxr border border-ui-200 bg-ui-50 rounded-full transition-colors hover:border-primary active:border-primary",
         { "border-primary": selected || checkFill },
         className,
       )}>
       {icon && (
-        <span aria-hidden className="flex items-center justify-center w-20pxr h-20pxr shrink-0 [&>svg]:max-w-full [&>svg]:max-h-full">
+        <span
+          aria-hidden
+          className="flex items-center justify-center w-20pxr h-20pxr shrink-0 [&>svg]:max-w-full [&>svg]:max-h-full">
           {icon}
         </span>
       )}
       <span className="text-caption1-md">{label}</span>
       {checkFill && icon && (
-        <CheckFill aria-hidden className="text-ui-50 absolute -left-4pxr -top-4pxr h-16pxr w-16pxr" />
+        <CheckFill
+          aria-hidden
+          className="text-ui-50 absolute -left-4pxr -top-4pxr h-16pxr w-16pxr"
+        />
       )}
       {onRemove && (
         <button
           type="button"
-          className="text-ui-600"
+          className="text-ui-600 cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
             onRemove();
