@@ -6,6 +6,11 @@ import TechStackOptionList from "@/components/common/TechStackOptionList";
 import SelectAllButton from "../buttons/SelectAllButton";
 import TechstackTab from "../tabs/TechstackTab";
 
+type FilterTechstackOptionListProps = {
+  selectedValues: TechName[];
+  onChange: (values: TechName[]) => void;
+};
+
 const TAB_TECHS: Record<number, { title: string; techs: TechName[] }[]> = {
   0: [
     {
@@ -43,9 +48,11 @@ const TAB_TECHS: Record<number, { title: string; techs: TechName[] }[]> = {
   ],
 };
 
-const FilterTechstackOptionList = () => {
+const FilterTechstackOptionList = ({
+  selectedValues,
+  onChange,
+}: FilterTechstackOptionListProps) => {
   const [activeTab, setActiveTab] = useState(0);
-  const [selectedValues, setSelectedValues] = useState<TechName[]>([]);
 
   const currentSections = TAB_TECHS[activeTab];
   const allTechs = currentSections.flatMap((s) => s.techs);
@@ -53,25 +60,27 @@ const FilterTechstackOptionList = () => {
 
   const handleSelectAll = () => {
     if (isAllSelected) {
-      setSelectedValues((prev) => prev.filter((t) => !allTechs.includes(t)));
+      onChange(selectedValues.filter((t) => !allTechs.includes(t)));
     } else {
-      setSelectedValues((prev) => [
-        ...prev.filter((t) => !allTechs.includes(t)),
+      onChange([
+        ...selectedValues.filter((t) => !allTechs.includes(t)),
         ...allTechs,
       ]);
     }
   };
 
   const handleToggle = (tech: TechName) => {
-    setSelectedValues((prev) =>
-      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech],
+    onChange(
+      selectedValues.includes(tech)
+        ? selectedValues.filter((t) => t !== tech)
+        : [...selectedValues, tech],
     );
   };
 
   return (
     <div className="flex flex-col">
       <TechstackTab
-        tabs={["프론트엔드", "벡엔드", "인프라"]}
+        tabs={["프론트엔드", "백엔드", "인프라"]}
         activeIndex={activeTab}
         onChange={setActiveTab}
       />

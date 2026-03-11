@@ -24,7 +24,7 @@ const FilterCheckBoxOptionList = ({
   className,
 }: FilterCheckBoxOptionListProps) => {
   const isAllSelected =
-    options.length > 0 && selectedValues.length === options.length;
+    options.length > 0 && options.every((opt) => selectedValues.includes(opt.value));
   return (
     <div
       className={cn(
@@ -36,8 +36,8 @@ const FilterCheckBoxOptionList = ({
         className,
       )}>
       <div className="flex gap-x-12pxr items-center py-8pxr">
-        <FilterCheckBoxButton checked={isAllSelected} onChange={onSelectAll} />
-        <span className="text-label1-md text-ui-900">전체</span>
+        <FilterCheckBoxButton checked={isAllSelected} onChange={onSelectAll} aria-label="전체 선택" />
+        <span className="text-label1-md text-ui-900" aria-hidden>전체</span>
       </div>
       {options.map((option) => (
         <div
@@ -46,8 +46,9 @@ const FilterCheckBoxOptionList = ({
           <FilterCheckBoxButton
             checked={selectedValues.includes(option.value)}
             onChange={() => onToggle?.(option.value)}
+            aria-label={option.label}
           />
-          <span className="text-label1-md text-ui-900">{option.label}</span>
+          <span className="text-label1-md text-ui-900" aria-hidden>{option.label}</span>
         </div>
       ))}
     </div>

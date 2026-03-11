@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import type { TechName } from "@/constants/techstack";
 import FilterButton from "../buttons/FilterButton";
 import FilterCheckBoxOptionList, {
   type FilterCheckBoxOption,
@@ -17,6 +18,8 @@ type CheckboxDropdownProps = {
 
 type TechstackDropdownProps = {
   type: "techstack";
+  selectedValues?: TechName[];
+  onToggle?: (values: TechName[]) => void;
 };
 
 type FilterDropdownProps = {
@@ -41,12 +44,15 @@ const FilterDropdown = ({
         className,
       )}>
       {/* 타이틀 부분 */}
-      <span className="text-ui-600 text-label1-md pt-16pxr pb-8pxr">
+      <p className="text-ui-600 text-label1-md pt-16pxr pb-8pxr">
         {title}
-      </span>
+      </p>
       {/* 옵션 목록 */}
       {props.type === "techstack" ? (
-        <FilterTechstackOptionList />
+        <FilterTechstackOptionList
+          selectedValues={props.selectedValues ?? []}
+          onChange={props.onToggle ?? (() => {})}
+        />
       ) : (
         <FilterCheckBoxOptionList
           options={props.options}

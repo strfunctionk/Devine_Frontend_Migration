@@ -20,7 +20,7 @@ const TechStackOptionList = ({
 }: TechStackOptionListProps) => {
   return (
     <div className="flex flex-col gap-12pxr">
-      <span className="text-label1-md text-ui-700">{title}</span>
+      <h3 className="text-label1-md text-ui-700">{title}</h3>
       <div className="flex flex-wrap gap-4pxr">
         {techs.map((tech) => (
           <CommonChip
