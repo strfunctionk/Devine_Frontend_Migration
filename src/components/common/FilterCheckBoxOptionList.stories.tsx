@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useState } from "react";
 import FilterCheckBoxOptionList from "@/components/common/FilterCheckBoxOptionList";
-import type { FilterCheckBoxOption } from "@/components/common/FilterCheckBoxOptionList";
+import type { FilterOption } from "@/types/filter";
 
 const InteractiveFilterCheckBoxOptionList = (
   args: React.ComponentProps<typeof FilterCheckBoxOptionList>,
@@ -27,7 +27,7 @@ const InteractiveFilterCheckBoxOptionList = (
   );
 };
 
-const defaultOptions: FilterCheckBoxOption[] = [
+const defaultOptions: FilterOption[] = [
   { label: "Option 1", value: "option1" },
   { label: "Option 2", value: "option2" },
   { label: "Option 3", value: "option3" },

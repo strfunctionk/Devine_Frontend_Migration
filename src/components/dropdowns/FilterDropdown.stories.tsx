@@ -1,19 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useState } from "react";
+import type { TechName } from "@/constants/techstack";
 import FilterDropdown from "./FilterDropdown";
 
 const InteractiveFilterDropdown = (
   args: React.ComponentProps<typeof FilterDropdown>,
 ) => {
   const [selected, setSelected] = useState<string[]>([]);
+  const [techSelected, setTechSelected] = useState<TechName[]>([]);
+
+  if (args.type === "techstack") {
+    return (
+      <FilterDropdown
+        {...args}
+        selectedValues={techSelected}
+        onToggle={setTechSelected}
+      />
+    );
+  }
+
   const toggle = (value: string) =>
     setSelected((prev) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
     );
-
-  if (args.type === "techstack") {
-    return <FilterDropdown {...args} />;
-  }
 
   return (
     <FilterDropdown {...args} selectedValues={selected} onToggle={toggle} />

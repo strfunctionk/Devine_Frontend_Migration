@@ -1,14 +1,13 @@
 import { cn } from "@/lib/cn";
 import type { TechName } from "@/constants/techstack";
 import FilterButton from "../buttons/FilterButton";
-import FilterCheckBoxOptionList, {
-  type FilterCheckBoxOption,
-} from "../common/FilterCheckBoxOptionList";
+import FilterCheckBoxOptionList from "../common/FilterCheckBoxOptionList";
+import type { FilterOption } from "@/types/filter";
 import FilterTechstackOptionList from "../common/FilterTechstackOptionList";
 
 type CheckboxDropdownProps = {
   type?: "checkbox";
-  options: FilterCheckBoxOption[];
+  options: FilterOption[];
   selectedValues?: string[];
   onToggle?: (value: string) => void;
   onSelectAll?: () => void;

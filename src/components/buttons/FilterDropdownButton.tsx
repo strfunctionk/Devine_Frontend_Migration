@@ -6,48 +6,63 @@ import { cn } from "@/lib/cn";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { useDropdownPosition } from "@/hooks/useDropdownPosition";
 import FilterDropdown from "@/components/dropdowns/FilterDropdown";
+import { TECH_LABEL, type TechName } from "@/constants/techstack";
+import type { FilterOption } from "@/types/filter";
 
-type FilterOption = {
-  label: string;
-  value: string;
-};
-
-type FilterDropdownButtonProps = {
-  label: string;
-  options: FilterOption[];
+type CheckboxButtonProps = {
+  type?: "checkbox";
+  options?: FilterOption[];
   selectedValues?: string[];
   onApply?: (values: string[]) => void;
   columns?: 1 | 2;
   dropdownSize?: "sm" | "lg";
-  className?: string;
 };
+
+type TechstackButtonProps = {
+  type: "techstack";
+  selectedValues?: TechName[];
+  onApply?: (values: TechName[]) => void;
+};
+
+type FilterDropdownButtonProps = {
+  label: string;
+  className?: string;
+} & (CheckboxButtonProps | TechstackButtonProps);
 
 const FilterDropdownButton = ({
   label,
-  options,
-  selectedValues = [],
-  onApply,
-  columns,
-  dropdownSize,
   className,
+  ...props
 }: FilterDropdownButtonProps) => {
-  const resolvedSize = dropdownSize ?? (columns === 2 ? "lg" : "sm");
+  const isTechstack = props.type === "techstack";
+  const resolvedSize =
+    !isTechstack
+      ? (props.dropdownSize ?? (props.columns === 2 ? "lg" : "sm"))
+      : "lg";
+
   const [isOpen, setIsOpen] = useState(false);
   const [pendingValues, setPendingValues] = useState<string[]>([]);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const displayValues = isOpen ? pendingValues : selectedValues;
+  const selectedValues = props.selectedValues ?? [];
+  const displayValues = isOpen ? pendingValues : (selectedValues as string[]);
   const isApplied = displayValues.length > 0;
 
   const shown = displayValues.slice(0, 2);
   const rest = Math.max(0, displayValues.length - shown.length);
   const summaryLabel = isApplied
-    ? `${shown.map((v) => options.find((o) => o.value === v)?.label ?? v).join(", ")}${rest > 0 ? "…" : ""}`
+    ? `${shown
+        .map((v) =>
+          isTechstack
+            ? (TECH_LABEL[v as TechName] ?? v)
+            : ((props as CheckboxButtonProps).options?.find((o) => o.value === v)?.label ?? v),
+        )
+        .join(", ")}${rest > 0 ? "…" : ""}`
     : label;
 
   const open = () => {
-    setPendingValues(selectedValues);
+    setPendingValues(selectedValues as string[]);
     setIsOpen(true);
   };
 
@@ -60,16 +75,21 @@ const FilterDropdownButton = ({
   };
 
   const handleApply = () => {
-    onApply?.(pendingValues);
+    if (isTechstack) {
+      (props as TechstackButtonProps).onApply?.(pendingValues as TechName[]);
+    } else {
+      (props as CheckboxButtonProps).onApply?.(pendingValues);
+    }
     setIsOpen(false);
   };
 
   const handleReset = () => setPendingValues([]);
 
-  const handleSelectAll = () =>
-    setPendingValues(
-      pendingValues.length === options.length ? [] : options.map((o) => o.value),
-    );
+  const handleSelectAll = () => {
+    if (isTechstack) return;
+    const options = (props as CheckboxButtonProps).options ?? [];
+    setPendingValues(pendingValues.length === options.length ? [] : options.map((o) => o.value));
+  };
 
   useClickOutside(dropdownRef, {
     onClickOutside: cancel,
@@ -88,6 +108,7 @@ const FilterDropdownButton = ({
         ref={buttonRef}
         type="button"
         aria-expanded={isOpen}
+        aria-haspopup="listbox"
         onClick={() => (isOpen ? cancel() : open())}
         className={cn(
           "flex max-w-260pxr cursor-pointer items-center gap-8pxr rounded-full px-16pxr py-12pxr text-heading2-sb transition-colors",
@@ -111,18 +132,32 @@ const FilterDropdownButton = ({
       </button>
 
       {isOpen && position && (
-        <div ref={dropdownRef} className={cn("fixed z-50", resolvedSize === "sm" ? "w-220pxr" : "w-440pxr")} style={position}>
-          <FilterDropdown
-            title={label}
-            options={options}
-            selectedValues={pendingValues}
-            onToggle={handleToggle}
-            onApply={handleApply}
-            onReset={handleReset}
-            onSelectAll={handleSelectAll}
-            onClose={cancel}
-            columns={columns}
-          />
+        <div
+          ref={dropdownRef}
+          className={cn("fixed z-50", resolvedSize === "sm" ? "w-220pxr" : "w-440pxr")}
+          style={position}>
+          {isTechstack ? (
+            <FilterDropdown
+              type="techstack"
+              title={label}
+              selectedValues={pendingValues as TechName[]}
+              onToggle={(values) => setPendingValues(values)}
+              onApply={handleApply}
+              onReset={handleReset}
+            />
+          ) : (
+            <FilterDropdown
+              title={label}
+              options={(props as CheckboxButtonProps).options ?? []}
+              selectedValues={pendingValues}
+              onToggle={handleToggle}
+              onApply={handleApply}
+              onReset={handleReset}
+              onSelectAll={handleSelectAll}
+              onClose={cancel}
+              columns={(props as CheckboxButtonProps).columns}
+            />
+          )}
         </div>
       )}
     </div>

@@ -1,13 +1,9 @@
 import { cn } from "@/lib/cn";
 import FilterCheckBoxButton from "../buttons/FilterCheckBoxButton";
-
-type FilterCheckBoxOption = {
-  label: string;
-  value: string;
-};
+import type { FilterOption } from "@/types/filter";
 
 type FilterCheckBoxOptionListProps = {
-  options: FilterCheckBoxOption[];
+  options: FilterOption[];
   selectedValues?: string[];
   onToggle?: (value: string) => void;
   onSelectAll?: () => void;
@@ -56,4 +52,4 @@ const FilterCheckBoxOptionList = ({
 };
 
 export default FilterCheckBoxOptionList;
-export type { FilterCheckBoxOption, FilterCheckBoxOptionListProps };
+export type { FilterCheckBoxOptionListProps };

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useState } from "react";
+import type { TechName } from "@/constants/techstack";
 import FilterDropdownButton from "./FilterDropdownButton";
 
 const PROJECT_TYPE_OPTIONS = [
@@ -25,6 +26,17 @@ const InteractiveDemo = (
   args: React.ComponentProps<typeof FilterDropdownButton>,
 ) => {
   const [selected, setSelected] = useState<string[]>([]);
+
+  if (args.type === "techstack") {
+    return (
+      <FilterDropdownButton
+        {...args}
+        selectedValues={selected as TechName[]}
+        onApply={(values) => setSelected(values)}
+      />
+    );
+  }
+
   return (
     <FilterDropdownButton
       {...args}
@@ -40,19 +52,8 @@ const meta = {
   render: (args: React.ComponentProps<typeof FilterDropdownButton>) => (
     <InteractiveDemo {...args} />
   ),
-  args: {
-    label: "필터",
-    options: PROJECT_TYPE_OPTIONS,
-  },
-  argTypes: {
-    dropdownSize: {
-      control: "radio",
-      options: ["sm", "lg"],
-      description: "드롭다운 너비 (sm: 220pxr, lg: 440pxr)",
-    },
-  },
   decorators: [
-    (Story) => (
+    (Story: React.ComponentType) => (
       <div className="p-40pxr">
         <Story />
       </div>
@@ -63,7 +64,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    label: "필터",
+    options: PROJECT_TYPE_OPTIONS,
+  },
+};
 
 export const ProjectType: Story = {
   args: {
@@ -83,10 +89,12 @@ export const Domain: Story = {
 const WithPreselectedDemo = (
   args: React.ComponentProps<typeof FilterDropdownButton>,
 ) => {
-  const [selected, setSelected] = useState(["web", "game"]);
+  const [selected, setSelected] = useState<string[]>(["web", "game"]);
   return (
     <FilterDropdownButton
-      {...args}
+      {...(args as React.ComponentProps<typeof FilterDropdownButton> & {
+        type?: "checkbox";
+      })}
       selectedValues={selected}
       onApply={(values) => setSelected(values)}
     />
@@ -98,5 +106,37 @@ export const WithPreselected: Story = {
   args: {
     label: "프로젝트 유형",
     options: PROJECT_TYPE_OPTIONS,
+  },
+};
+
+export const Techstack: Story = {
+  args: {
+    type: "techstack",
+    label: "포지션/기술스택",
+  },
+};
+
+const TechstackWithPreselectedDemo = (
+  args: React.ComponentProps<typeof FilterDropdownButton>,
+) => {
+  const [selected, setSelected] = useState<TechName[]>([
+    "REACT",
+    "TYPESCRIPT",
+    "NEXTJS",
+  ]);
+  return (
+    <FilterDropdownButton
+      {...args}
+      selectedValues={selected}
+      onApply={(values) => setSelected(values as TechName[])}
+    />
+  );
+};
+
+export const TechstackWithPreselected: Story = {
+  render: (args) => <TechstackWithPreselectedDemo {...args} />,
+  args: {
+    type: "techstack",
+    label: "포지션/기술스택",
   },
 };

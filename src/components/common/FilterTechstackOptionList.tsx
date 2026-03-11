@@ -84,7 +84,7 @@ const FilterTechstackOptionList = ({
         activeIndex={activeTab}
         onChange={setActiveTab}
       />
-      <div className="flex justify-end items-center mt-13pxr">
+      <div className="flex justify-end items-center mt-13pxr pr-16pxr">
         <SelectAllButton selected={isAllSelected} onClick={handleSelectAll} />
       </div>
       {/* 옵션 리스트 */}
