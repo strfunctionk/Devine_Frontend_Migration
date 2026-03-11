@@ -25,6 +25,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <button
         ref={ref}
+        type="button"
         className={cn(
           "flex p-6pxr rounded-8pxr transition-colors duration-150 items-center justify-center cursor-pointer text-ui-600",
           hover ? "bg-ui-bg hover:bg-ui-100" : "bg-transparent",
@@ -33,7 +34,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         aria-label={ariaLabel}
         onClick={onClick}
       >
-        <Icon className={cn("h-24pxr w-24pxr", iconClassName)} />
+        <Icon aria-hidden className={cn("h-24pxr w-24pxr", iconClassName)} />
       </button>
     );
   }

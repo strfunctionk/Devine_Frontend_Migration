@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="flex flex-col justify-center items-center gap-28pxr w-full bg-ui-bg py-70pxr phone:py-44pxr">
       {/* 링크 */}
-      <nav className="hidden phone:flex phone:items-center gap-x-32pxr mb-8pxr">
+      <nav aria-label="푸터 링크" className="hidden phone:flex phone:items-center gap-x-32pxr mb-8pxr">
         <Link
           href="/terms/service"
           className="text-body1-md text-ui-600 transition-colors hover:text-ui-800">

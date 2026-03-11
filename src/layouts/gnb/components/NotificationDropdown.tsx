@@ -47,6 +47,7 @@ const NotificationDropdown = ({
   loadingMore: loadingMoreProp,
 }: NotificationDropdownProps) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const fallbackRef = useRef<HTMLElement | null>(null);
 
   // TODO: useNotificationStore 연결
   // const store = useNotificationStore();
@@ -63,7 +64,7 @@ const NotificationDropdown = ({
   const hasUnread = notifications.some((n) => !n.isRead);
 
   const position = useDropdownPosition({
-    anchorRef: anchorRef!,
+    anchorRef: anchorRef ?? fallbackRef,
     isOpen,
     placement: "bottom-right",
   });

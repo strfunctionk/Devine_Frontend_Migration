@@ -26,7 +26,7 @@ const Sidebar = ({
   isOpen,
   onClose,
   disableResponsive = false,
-  forceShowAuthContent = false,
+  forceShowAuthContent,
 }: SidebarProps) => {
   const pathname = usePathname();
 

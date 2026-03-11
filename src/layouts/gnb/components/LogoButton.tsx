@@ -21,7 +21,7 @@ const LogoButton = ({ className, logoClassName }: LogoButtonProps) => {
       <span className="phone:hidden">
         <MobileLogo className={logoClassName} />
       </span>
-      <span className="hidden phone:block">
+      <span className="hidden phone:block" suppressHydrationWarning>
         {theme === THEME.DARK
           ? <LightLogo className={logoClassName} />
           : <DarkLogo className={logoClassName} />
