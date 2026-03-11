@@ -87,6 +87,7 @@ const FilterDropdownButton = ({
       <button
         ref={buttonRef}
         type="button"
+        aria-expanded={isOpen}
         onClick={() => (isOpen ? cancel() : open())}
         className={cn(
           "flex max-w-260pxr cursor-pointer items-center gap-8pxr rounded-full px-16pxr py-12pxr text-heading2-sb transition-colors",

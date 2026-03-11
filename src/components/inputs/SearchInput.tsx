@@ -20,9 +20,10 @@ const SearchInput = ({
         "flex items-center rounded-16pxr bg-ui-50 px-16pxr py-13pxr gap-8pxr cursor-text",
         className,
       )}>
-      <SearchIcon className="w-24pxr h-24pxr shrink-0 text-ui-400" />
+      <SearchIcon aria-hidden className="w-24pxr h-24pxr shrink-0 text-ui-400" />
       <input
         type="text"
+        aria-label={placeholder ?? "검색"}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

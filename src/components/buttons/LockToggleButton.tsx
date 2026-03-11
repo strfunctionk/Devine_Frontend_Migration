@@ -8,12 +8,15 @@ type LockToggleButtonProps = {
   isOn: boolean;
   onChange: () => void;
   className?: string;
+  "aria-label"?: string;
 };
 
-export default function LockToggleButton({ isOn, onChange, className }: LockToggleButtonProps) {
+export default function LockToggleButton({ isOn, onChange, className, "aria-label": ariaLabel }: LockToggleButtonProps) {
   return (
     <button
       type="button"
+      aria-pressed={isOn}
+      aria-label={ariaLabel}
       onClick={onChange}
       className={cn(
         'relative h-28pxr w-56pxr rounded-full border border-ui-200 bg-ui-100 px-6pxr transition-colors duration-200',
@@ -24,8 +27,8 @@ export default function LockToggleButton({ isOn, onChange, className }: LockTogg
       )}
     >
       <div className="flex h-full items-center gap-x-12pxr">
-        <LockOpenIcon className="w-16pxr h-16pxr text-ui-50" />
-        <LockCloseIcon
+        <LockOpenIcon aria-hidden className="w-16pxr h-16pxr text-ui-50" />
+        <LockCloseIcon aria-hidden
           className={cn(
             'w-16pxr h-16pxr transition-colors duration-200',
             {

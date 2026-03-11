@@ -30,6 +30,7 @@ export default function FilterCheckBoxButton({
         className,
       )}>
       <Check
+        aria-hidden
         className={cn("transition-opacity", {
           "opacity-100": checked,
           "opacity-0": !checked,

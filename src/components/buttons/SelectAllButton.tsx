@@ -35,6 +35,7 @@ const SelectAllButton = ({ selected, onClick }: SelectAllButtonProps) => {
             }),
       )}>
       <SelectAllIcon
+        aria-hidden
         className={cn("w-20pxr h-20pxr", {
           "text-primary": selected,
           "group-hover:text-ui-500": selected && showHover,

@@ -8,12 +8,15 @@ type ToggleButtonProps = {
   isOn: boolean;
   onChange: () => void;
   className?: string;
+  "aria-label"?: string;
 };
 
-export default function ToggleButton({ isOn, onChange, className }: ToggleButtonProps) {
+export default function ToggleButton({ isOn, onChange, className, "aria-label": ariaLabel }: ToggleButtonProps) {
   return (
     <button
       type="button"
+      aria-pressed={isOn}
+      aria-label={ariaLabel}
       onClick={onChange}
       className={cn(
         'relative h-32pxr w-68pxr rounded-full border border-ui-200 bg-ui-100 px-6pxr transition-colors duration-200',
@@ -23,8 +26,6 @@ export default function ToggleButton({ isOn, onChange, className }: ToggleButton
         className,
       )}
     >
-      <div className="flex h-full items-center gap-x-12pxr">
-      </div>
       <div
         className={cn(
           'absolute top-1/2 h-28pxr w-30pxr -translate-y-1/2 rounded-full border border-ui-200 bg-ui-bg transition-[left] duration-200 ease-out',
