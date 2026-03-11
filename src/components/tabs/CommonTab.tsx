@@ -25,13 +25,15 @@ export default function CommonTab<T extends string>({
   itemClassName,
 }: CommonTabProps<T>) {
   return (
-    <div className={cn("flex gap-x-8pxr", className)}>
+    <div role="tablist" className={cn("flex gap-x-8pxr", className)}>
       {items.map((t) => {
         const active = t.value === value;
         return (
           <button
             key={t.value}
             type="button"
+            role="tab"
+            aria-selected={active}
             onClick={() => onChange(t.value)}
             className={cn(
               "group flex items-center gap-8pxr cursor-pointer rounded-full border-2 px-24pxr py-12pxr transition text-my-tab-text",

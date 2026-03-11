@@ -17,6 +17,7 @@ const TechstackTab = ({
 }: TechstackTabProps) => {
   return (
     <div
+      role="tablist"
       className="relative pb-4pxr flex gap-16pxr text-body1-sb w-fit"
       style={
         {
@@ -27,6 +28,8 @@ const TechstackTab = ({
         <button
           key={tab}
           type="button"
+          role="tab"
+          aria-selected={i === activeIndex}
           onClick={() => onChange?.(i)}
           className={cn("w-80pxr text-center text-ui-400 transition-colors", {
             "text-ui-700": i === activeIndex,
@@ -35,9 +38,9 @@ const TechstackTab = ({
         </button>
       ))}
       {/* 전체 보더 */}
-      <div className="absolute bottom-0 left-0 right-0 h-1pxr rounded-full bg-ui-100" />
+      <div aria-hidden className="absolute bottom-0 left-0 right-0 h-1pxr rounded-full bg-ui-100" />
       {/* 움직이는 바 */}
-      <div className="absolute bottom-0 h-1pxr rounded-full bg-ui-300 w-80pxr transition-all duration-300 left-(--bar-offset)" />
+      <div aria-hidden className="absolute bottom-0 h-1pxr rounded-full bg-ui-300 w-80pxr transition-all duration-300 left-(--bar-offset)" />
     </div>
   );
 };
