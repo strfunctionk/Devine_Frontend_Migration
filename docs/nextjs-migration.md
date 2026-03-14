@@ -11,6 +11,10 @@ src/
 │   │       └── (.)project/     # Intercepting Route - 프로젝트 모달
 │   └── layout.tsx              # 루트 레이아웃 (ClerkProvider 등)
 ├── components/                 # 순수 UI 디자인 시스템 (버튼, 인풋 등)
+├── layouts/                    # 페이지 레이아웃 공용 컴포넌트 (앱 로직 포함)
+│   └── gnb/                    # Global Navigation Bar
+│       ├── Gnb.tsx             # GNB 진입점 (header)
+│       └── components/         # GNB 내부 서브 컴포넌트
 ├── features/                   # DDD 도메인별 기능 (비즈니스 로직 핵심)
 │   └── [domain_name]/          # 예: auth, project, matching, member, report
 │       ├── api/                # 해당 도메인 서버 API 호출 (fetch)

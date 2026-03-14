@@ -1,13 +1,16 @@
 @import "tailwindcss";
-@import "../styles/theme.css";
-@import "../styles/custom-utilities.css";
-@import "../styles/reset.css";
-@import "../styles/tokens/common-card-theme.css";
-@import "../styles/tokens/common-badge-theme.css";
-@import "../styles/tokens/profile-card-theme.css";
-@import "../styles/tokens/auth-theme.css";
+@import "./theme.css";
+@import "./custom-utilities.css";
+@import "./reset.css";
+@import "./tokens/common-card-theme.css";
+@import "./tokens/common-badge-theme.css";
+@import "./tokens/profile-card-theme.css";
+@import "./tokens/auth-theme.css";
 
-@plugin "../styles/plugins/pxr.js";
+@plugin './plugins/pxr.js';
+
+@source '../';
+@source '../../.storybook';
 
 @layer base {
   :root {
@@ -50,4 +53,9 @@
 .page-transition {
   animation: page-enter 0.2s ease-out forwards;
   width: 100%;
+}
+
+.no-transition,
+.no-transition * {
+  transition: none !important;
 }

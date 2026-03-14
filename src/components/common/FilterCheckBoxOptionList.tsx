@@ -1,0 +1,55 @@
+import { cn } from "@/lib/cn";
+import FilterCheckBoxButton from "../buttons/FilterCheckBoxButton";
+import type { FilterOption } from "@/types/filter";
+
+type FilterCheckBoxOptionListProps = {
+  options: FilterOption[];
+  selectedValues?: string[];
+  onToggle?: (value: string) => void;
+  onSelectAll?: () => void;
+  columns?: 1 | 2;
+  className?: string;
+};
+
+const FilterCheckBoxOptionList = ({
+  options,
+  selectedValues = [],
+  onToggle,
+  onSelectAll,
+  columns = 1,
+  className,
+}: FilterCheckBoxOptionListProps) => {
+  const isAllSelected =
+    options.length > 0 && options.every((opt) => selectedValues.includes(opt.value));
+  return (
+    <div
+      className={cn(
+        "grid py-8pxr",
+        {
+          "grid-cols-1": columns === 1,
+          "grid-cols-2": columns === 2,
+        },
+        className,
+      )}>
+      <div className="flex gap-x-12pxr items-center py-8pxr">
+        <FilterCheckBoxButton checked={isAllSelected} onChange={onSelectAll} aria-label="전체 선택" />
+        <span className="text-label1-md text-ui-900" aria-hidden>전체</span>
+      </div>
+      {options.map((option) => (
+        <div
+          key={option.value}
+          className="flex gap-x-12pxr items-center py-8pxr">
+          <FilterCheckBoxButton
+            checked={selectedValues.includes(option.value)}
+            onChange={() => onToggle?.(option.value)}
+            aria-label={option.label}
+          />
+          <span className="text-label1-md text-ui-900" aria-hidden>{option.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default FilterCheckBoxOptionList;
+export type { FilterCheckBoxOptionListProps };

@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 @theme {
   /* ===========================
     UI Color aliases (Tailwind token용)
@@ -81,10 +83,18 @@
   --font-weight-bold: 700;
 
   /* breakpoints */
-  --breakpoint-tablet: 744px;
-  --breakpoint-phone: 390px;
-  --breakpoint-tablet-max: 743px;
-  --breakpoint-phone-max: 389px;
+  --breakpoint-tablet: 1080px;
+  --breakpoint-phone: 580px;
+  --breakpoint-tablet-max: 1079px;
+  --breakpoint-phone-max: 579px;
+
+}
+
+:root {
+  /* shadows */
+  /* 어두울 때 밝은 그림자 디자인에는 없음 */
+  --shadow-segment: 0px 2px 8px -4px rgba(255, 255, 255, 0.20);
+  --shadow-dropdown: 0 4px 8px 0 rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="light"] {
@@ -121,91 +131,87 @@
 
   --negative-bg: #fff1f0;
   --negative-text: #f87171;
+
+  /* shadows */
+  --shadow-segment: 0px 2px 8px -4px rgba(0, 0, 0, 0.20);
+  --shadow-dropdown: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
 }
 
+/* weight suffix: -bd(700) | -sb(600) | -md(500) | no suffix = 400 */
+
+.text-display1    { font-family: var(--font-pretendard); font-size: 5.6rem; line-height: 128.6%; letter-spacing: -0.0319em; font-weight: 400; }
+.text-display1-md { font-family: var(--font-pretendard); font-size: 5.6rem; line-height: 128.6%; letter-spacing: -0.0319em; font-weight: 500; }
+.text-display1-sb { font-family: var(--font-pretendard); font-size: 5.6rem; line-height: 128.6%; letter-spacing: -0.0319em; font-weight: 600; }
+.text-display1-bd { font-family: var(--font-pretendard); font-size: 5.6rem; line-height: 128.6%; letter-spacing: -0.0319em; font-weight: 700; }
+
+.text-title1    { font-family: var(--font-pretendard); font-size: 3.6rem; line-height: 133.4%; letter-spacing: -0.027em; font-weight: 400; }
+.text-title1-md { font-family: var(--font-pretendard); font-size: 3.6rem; line-height: 133.4%; letter-spacing: -0.027em; font-weight: 500; }
+.text-title1-sb { font-family: var(--font-pretendard); font-size: 3.6rem; line-height: 133.4%; letter-spacing: -0.027em; font-weight: 600; }
+.text-title1-bd { font-family: var(--font-pretendard); font-size: 3.6rem; line-height: 133.4%; letter-spacing: -0.027em; font-weight: 700; }
+
+.text-title2    { font-family: var(--font-pretendard); font-size: 2.8rem; line-height: 135.8%; letter-spacing: -0.0236em; font-weight: 400; }
+.text-title2-md { font-family: var(--font-pretendard); font-size: 2.8rem; line-height: 135.8%; letter-spacing: -0.0236em; font-weight: 500; }
+.text-title2-sb { font-family: var(--font-pretendard); font-size: 2.8rem; line-height: 135.8%; letter-spacing: -0.0236em; font-weight: 600; }
+.text-title2-bd { font-family: var(--font-pretendard); font-size: 2.8rem; line-height: 135.8%; letter-spacing: -0.0236em; font-weight: 700; }
+
+.text-title3    { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 133.4%; letter-spacing: -0.023em; font-weight: 400; }
+.text-title3-md { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 133.4%; letter-spacing: -0.023em; font-weight: 500; }
+.text-title3-sb { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 133.4%; letter-spacing: -0.023em; font-weight: 600; }
+.text-title3-bd { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 133.4%; letter-spacing: -0.023em; font-weight: 700; }
+
+.text-heading1    { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 400; }
+.text-heading1-md { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 500; }
+.text-heading1-sb { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 600; }
+.text-heading1-bd { font-family: var(--font-pretendard); font-size: 2.2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 700; }
+
+.text-heading2    { font-family: var(--font-pretendard); font-size: 2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 400; }
+.text-heading2-md { font-family: var(--font-pretendard); font-size: 2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 500; }
+.text-heading2-sb { font-family: var(--font-pretendard); font-size: 2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 600; }
+.text-heading2-bd { font-family: var(--font-pretendard); font-size: 2rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 700; }
+
+.text-heading4    { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 400; }
+.text-heading4-md { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 500; }
+.text-heading4-sb { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 600; }
+.text-heading4-bd { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 140%; letter-spacing: -0.012em; font-weight: 700; }
+
+.text-headline1    { font-family: var(--font-pretendard); font-size: 1.8rem; line-height: 144.5%; letter-spacing: -0.002em; font-weight: 400; }
+.text-headline1-md { font-family: var(--font-pretendard); font-size: 1.8rem; line-height: 144.5%; letter-spacing: -0.002em; font-weight: 500; }
+.text-headline1-sb { font-family: var(--font-pretendard); font-size: 1.8rem; line-height: 144.5%; letter-spacing: -0.002em; font-weight: 600; }
+.text-headline1-bd { font-family: var(--font-pretendard); font-size: 1.8rem; line-height: 144.5%; letter-spacing: -0.002em; font-weight: 700; }
+
+.text-body1    { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 400; }
+.text-body1-md { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 500; }
+.text-body1-sb { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 600; }
+.text-body1-bd { font-family: var(--font-pretendard); font-size: 1.6rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 700; }
+
+.text-body2    { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 400; }
+.text-body2-md { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 500; }
+.text-body2-sb { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 600; }
+.text-body2-bd { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 150%; letter-spacing: 0.0057em; font-weight: 700; }
+
+.text-label1    { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 142.9%; letter-spacing: 0.0145em; font-weight: 400; }
+.text-label1-md { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 142.9%; letter-spacing: 0.0145em; font-weight: 500; }
+.text-label1-sb { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 142.9%; letter-spacing: 0.0145em; font-weight: 600; }
+.text-label1-bd { font-family: var(--font-pretendard); font-size: 1.4rem; line-height: 142.9%; letter-spacing: 0.0145em; font-weight: 700; }
+
+.text-caption1    { font-family: var(--font-pretendard); font-size: 1.2rem; line-height: 133.4%; letter-spacing: 0.0252em; font-weight: 400; }
+.text-caption1-md { font-family: var(--font-pretendard); font-size: 1.2rem; line-height: 133.4%; letter-spacing: 0.0252em; font-weight: 500; }
+.text-caption1-sb { font-family: var(--font-pretendard); font-size: 1.2rem; line-height: 133.4%; letter-spacing: 0.0252em; font-weight: 600; }
+.text-caption1-bd { font-family: var(--font-pretendard); font-size: 1.2rem; line-height: 133.4%; letter-spacing: 0.0252em; font-weight: 700; }
+
 @layer utilities {
-  .Display1 {
-    font-family: var(--font-pretendard);
-    font-size: 5.6rem;
-    line-height: 128.6%;
-    letter-spacing: -0.0319em;
-  }
-
-  .Title1 {
-    font-family: var(--font-pretendard);
-    font-size: 3.6rem;
-    line-height: 133.4%;
-    letter-spacing: -0.027em;
-  }
-
-  .Title2 {
-    font-family: var(--font-pretendard);
-    font-size: 2.8rem;
-    line-height: 135.8%;
-    letter-spacing: -0.0236em;
-  }
-
-  .Title3 {
-    font-family: var(--font-pretendard);
-    font-size: 2.2rem;
-    line-height: 133.4%;
-    letter-spacing: -0.023em;
-  }
-
-  .Heading1 {
-    font-family: var(--font-pretendard);
-    font-size: 2.2rem;
-    line-height: 140%;
-    letter-spacing: -0.012em;
-  }
-
-  .Heading2 {
-    font-family: var(--font-pretendard);
-    font-size: 2rem;
-    line-height: 140%;
-    letter-spacing: -0.012em;
-  }
-
-  .Headline1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.8rem;
-    line-height: 144.5%;
-    letter-spacing: -0.002em;
-  }
-
-  .Body1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.6rem;
-    line-height: 150%;
-    letter-spacing: 0.0057em;
-  }
-
-  .Label1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.4rem;
-    line-height: 142.9%;
-    letter-spacing: 0.0145em;
-  }
-
-  .Caption1 {
-    font-family: var(--font-pretendard);
-    font-size: 1.2rem;
-    line-height: 133.4%;
-    letter-spacing: 0.0252em;
-  }
-
-  :lang(en) .Display1,
-  :lang(en) .Title1,
-  :lang(en) .Title2,
-  :lang(en) .Title3,
-  :lang(en) .Heading1,
-  :lang(en) .Heading2,
-  :lang(en) .Headline1,
-  :lang(en) .Body1,
-  :lang(en) .Label1,
-  :lang(en) .Caption1 {
-    font-weight: 500;
-  }
+  :lang(en) .text-display1,    :lang(en) .text-display1-md,    :lang(en) .text-display1-sb,    :lang(en) .text-display1-bd,
+  :lang(en) .text-title1,      :lang(en) .text-title1-md,      :lang(en) .text-title1-sb,      :lang(en) .text-title1-bd,
+  :lang(en) .text-title2,      :lang(en) .text-title2-md,      :lang(en) .text-title2-sb,      :lang(en) .text-title2-bd,
+  :lang(en) .text-title3,      :lang(en) .text-title3-md,      :lang(en) .text-title3-sb,      :lang(en) .text-title3-bd,
+  :lang(en) .text-heading1,    :lang(en) .text-heading1-md,    :lang(en) .text-heading1-sb,    :lang(en) .text-heading1-bd,
+  :lang(en) .text-heading2,    :lang(en) .text-heading2-md,    :lang(en) .text-heading2-sb,    :lang(en) .text-heading2-bd,
+  :lang(en) .text-heading4,    :lang(en) .text-heading4-md,    :lang(en) .text-heading4-sb,    :lang(en) .text-heading4-bd,
+  :lang(en) .text-headline1,   :lang(en) .text-headline1-md,   :lang(en) .text-headline1-sb,   :lang(en) .text-headline1-bd,
+  :lang(en) .text-body1,       :lang(en) .text-body1-md,       :lang(en) .text-body1-sb,       :lang(en) .text-body1-bd,
+  :lang(en) .text-body2,       :lang(en) .text-body2-md,       :lang(en) .text-body2-sb,       :lang(en) .text-body2-bd,
+  :lang(en) .text-label1,      :lang(en) .text-label1-md,      :lang(en) .text-label1-sb,      :lang(en) .text-label1-bd,
+  :lang(en) .text-caption1,    :lang(en) .text-caption1-md,    :lang(en) .text-caption1-sb,    :lang(en) .text-caption1-bd
 
   /* 알림 배지 울리는 듯한 펄스 (초창기) */
   @keyframes notification-badge-pulse {

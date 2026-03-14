@@ -1,8 +1,8 @@
-import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
+import type { Viewport } from 'next';
 import localFont from 'next/font/local';
 import Providers from './providers';
-import './globals.css';
+import '../styles/globals.css';
 
 const pretendard = localFont({
   src: [
@@ -20,9 +20,28 @@ const pretendard = localFont({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: 'DeVine',
-  description: 'DeVine - Developer Networking Platform',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:5174'),
+  title: {
+    default: 'DeVine',
+    template: '%s | DeVine',
+  },
+  description: '개발자와 프로젝트를 연결하는 플랫폼, DeVine',
+  openGraph: {
+    type: 'website',
+    siteName: 'DeVine',
+    title: 'DeVine',
+    description: '개발자와 프로젝트를 연결하는 플랫폼, DeVine',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -31,12 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="ko" data-theme="dark" className={pretendard.variable}>
-        <body>
-          <Providers>{children}</Providers>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="ko" className={pretendard.variable} suppressHydrationWarning>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
